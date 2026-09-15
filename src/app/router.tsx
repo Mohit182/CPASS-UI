@@ -3,14 +3,11 @@ import { AppShell } from '@/components/layout';
 import { LoginPage } from '@/features/auth/LoginPage';
 import { Placeholder } from '@/features/Placeholder';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
+import { SendPickerPage } from '@/features/send/SendPickerPage';
+import { ComposePage } from '@/features/send/ComposePage';
 
 /** Routes still pending a real screen: path → [title, subtitle]. */
 const pending: Record<string, [string, string?]> = {
-  '/send': ['Send Now', 'Choose a message mode, verify DLT mapping, then send or schedule.'],
-  '/send/campaign': ['Campaign SMS'],
-  '/send/unicode': ['Unicode SMS'],
-  '/send/dynamic': ['Dynamic SMS'],
-  '/send/multi-dynamic': ['Multi Dynamic SMS'],
   '/campaigns': ['Campaign', 'Choose a message mode, verify DLT mapping, then send or schedule.'],
   '/user-control/companies': ['User Control', 'Companies'],
   '/user-control/companies/new': ['Company Details'],
@@ -60,6 +57,11 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="/dashboard" replace /> },
       { path: '/dashboard', element: <DashboardPage /> },
+      { path: '/send', element: <SendPickerPage /> },
+      { path: '/send/campaign', element: <ComposePage mode="campaign" /> },
+      { path: '/send/unicode', element: <ComposePage mode="unicode" /> },
+      { path: '/send/dynamic', element: <ComposePage mode="dynamic" /> },
+      { path: '/send/multi-dynamic', element: <ComposePage mode="multi-dynamic" /> },
       ...pendingRoutes,
       { path: '*', element: <Placeholder title="Not found" subtitle="This page does not exist." /> },
     ],

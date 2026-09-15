@@ -43,8 +43,8 @@ export function PhonePreview({ sender = 'GRWTEL', message, time = '11:20 AM', cl
           <span className="inline-block h-2 w-4 rounded-sm bg-ink" />
         </span>
       </div>
-      <div className="mt-1 flex flex-col items-center border-b border-line pb-2">
-        <ChevronLeft className="absolute left-5 mt-3 h-4 w-4 text-[#1A73E8]" />
+      <div className="relative mt-1 flex flex-col items-center border-b border-line pb-2">
+        <ChevronLeft className="absolute left-3 top-2 h-4 w-4 text-[#1A73E8]" />
         <span className="grid h-9 w-9 place-items-center rounded-full bg-ink-faint text-white">
           <UserRound className="h-5 w-5" />
         </span>
