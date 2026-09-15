@@ -2,10 +2,10 @@ import { createBrowserRouter, Navigate, type RouteObject } from 'react-router-do
 import { AppShell } from '@/components/layout';
 import { LoginPage } from '@/features/auth/LoginPage';
 import { Placeholder } from '@/features/Placeholder';
+import { DashboardPage } from '@/features/dashboard/DashboardPage';
 
 /** Routes still pending a real screen: path → [title, subtitle]. */
 const pending: Record<string, [string, string?]> = {
-  '/dashboard': ['Bulk SMS', 'Growtele CPaaS · DLT compliant messaging.'],
   '/send': ['Send Now', 'Choose a message mode, verify DLT mapping, then send or schedule.'],
   '/send/campaign': ['Campaign SMS'],
   '/send/unicode': ['Unicode SMS'],
@@ -59,6 +59,7 @@ export const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { index: true, element: <Navigate to="/dashboard" replace /> },
+      { path: '/dashboard', element: <DashboardPage /> },
       ...pendingRoutes,
       { path: '*', element: <Placeholder title="Not found" subtitle="This page does not exist." /> },
     ],
