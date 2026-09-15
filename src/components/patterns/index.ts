@@ -8,3 +8,4 @@ export type { FilterDef } from './FilterBar';
 export { RecipientStats, PhonePreview, SendOptionsBar, SendActions, DEFAULT_SEND_OPTIONS } from './SendPatterns';
 export { HeatmapGrid } from './HeatmapGrid';
 export { DualListPicker } from './DualListPicker';
+export { ActionCell } from './ActionCell';

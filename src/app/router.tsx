@@ -5,14 +5,17 @@ import { Placeholder } from '@/features/Placeholder';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
 import { SendPickerPage } from '@/features/send/SendPickerPage';
 import { ComposePage } from '@/features/send/ComposePage';
+import { CampaignsPage } from '@/features/campaigns/CampaignsPage';
+import { CompaniesPage, CompanyFormPage, UserFormPage, UsersPage } from '@/features/user-control/UserControlPages';
+import { BulkUploadPage, DltPickerPage, EntityIdsPage, SenderIdsPage, TemplatesPage, UrlsPage } from '@/features/dlt/DltPages';
+import { ApiManagementPage } from '@/features/api-management/ApiManagementPage';
+import { ContactsPage, GroupsPage } from '@/features/contacts/ContactPages';
+import { SchedulePage } from '@/features/schedule/SchedulePage';
+import { DownloadArchivePage, ViewArchivePage } from '@/features/archive/ArchivePages';
+import { DownloadDataPage, DynamicReportPage } from '@/features/download/DownloadPages';
 
 /** Routes still pending a real screen: path → [title, subtitle]. */
 const pending: Record<string, [string, string?]> = {
-  '/campaigns': ['Campaign', 'Choose a message mode, verify DLT mapping, then send or schedule.'],
-  '/user-control/companies': ['User Control', 'Companies'],
-  '/user-control/companies/new': ['Company Details'],
-  '/user-control/users': ['User Control', 'Users'],
-  '/user-control/users/new': ['User Details'],
   '/credits': ['Credits', 'Balance and ledger.'],
   '/reports/summary': ['Summary Report'],
   '/reports/summary/overview': ['Summary Report', 'Overview'],
@@ -27,21 +30,7 @@ const pending: Record<string, [string, string?]> = {
   '/reports/detail/clicker/data': ['Clicker Report', 'Data'],
   '/operator-analytics/company': ['Operator Analytics', 'Company summary'],
   '/operator-analytics/user': ['Operator Analytics', 'User summary'],
-  '/dlt': ['DLT Management'],
-  '/dlt/entity-ids': ['DLT Management', 'Entity IDs'],
-  '/dlt/sender-ids': ['DLT Management', 'Sender IDs'],
-  '/dlt/templates': ['DLT Management', 'Templates'],
-  '/dlt/bulk-upload': ['DLT Management', 'Bulk upload'],
-  '/dlt/urls': ['DLT Management', 'Short URLs'],
-  '/api-management': ['API Management'],
-  '/contacts/groups': ['Contact Management', 'Groups'],
-  '/contacts/contacts': ['Contact Management', 'Contacts'],
   '/notifications': ['Notifications'],
-  '/schedule': ['Schedule Manager'],
-  '/archive/view': ['Archive', 'View archive'],
-  '/archive/download': ['Archive', 'Download archive'],
-  '/download/data': ['Download', 'Download data'],
-  '/download/dynamic': ['Download', 'Dynamic report'],
 };
 
 const pendingRoutes: RouteObject[] = Object.entries(pending).map(([path, [title, subtitle]]) => ({
@@ -62,6 +51,25 @@ export const router = createBrowserRouter([
       { path: '/send/unicode', element: <ComposePage mode="unicode" /> },
       { path: '/send/dynamic', element: <ComposePage mode="dynamic" /> },
       { path: '/send/multi-dynamic', element: <ComposePage mode="multi-dynamic" /> },
+      { path: '/campaigns', element: <CampaignsPage /> },
+      { path: '/user-control/companies', element: <CompaniesPage /> },
+      { path: '/user-control/companies/new', element: <CompanyFormPage /> },
+      { path: '/user-control/users', element: <UsersPage /> },
+      { path: '/user-control/users/new', element: <UserFormPage /> },
+      { path: '/dlt', element: <DltPickerPage /> },
+      { path: '/dlt/entity-ids', element: <EntityIdsPage /> },
+      { path: '/dlt/sender-ids', element: <SenderIdsPage /> },
+      { path: '/dlt/templates', element: <TemplatesPage /> },
+      { path: '/dlt/bulk-upload', element: <BulkUploadPage /> },
+      { path: '/dlt/urls', element: <UrlsPage /> },
+      { path: '/api-management', element: <ApiManagementPage /> },
+      { path: '/contacts/groups', element: <GroupsPage /> },
+      { path: '/contacts/contacts', element: <ContactsPage /> },
+      { path: '/schedule', element: <SchedulePage /> },
+      { path: '/archive/view', element: <ViewArchivePage /> },
+      { path: '/archive/download', element: <DownloadArchivePage /> },
+      { path: '/download/data', element: <DownloadDataPage /> },
+      { path: '/download/dynamic', element: <DynamicReportPage /> },
       ...pendingRoutes,
       { path: '*', element: <Placeholder title="Not found" subtitle="This page does not exist." /> },
     ],

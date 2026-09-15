@@ -77,21 +77,33 @@ export function Modal({ open, onClose, title, subtitle, children, footer, illust
 /** Generic illustration for split modals: hand holding an ID card, drawn in SVG. */
 export function IdCardIllustration() {
   return (
-    <svg viewBox="0 0 200 300" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
+    <svg viewBox="0 0 240 300" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
       <defs>
         <linearGradient id="hand" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#FFB44D" />
           <stop offset="1" stopColor="#F58A1F" />
         </linearGradient>
       </defs>
-      <path d="M-10 300 C 10 190, 40 150, 70 130 C 85 120, 95 125, 92 140 L 88 160 C 110 150, 125 155, 122 170 C 140 168, 150 178, 142 190 C 155 195, 152 210, 138 216 C 130 240, 90 270, 60 300 Z" fill="url(#hand)" />
-      <rect x="80" y="95" width="130" height="80" rx="8" fill="#fff" />
-      <rect x="80" y="95" width="130" height="18" rx="8" fill="#161240" />
-      <circle cx="105" cy="140" r="14" fill="#5EC8CF" />
-      <circle cx="105" cy="134" r="6" fill="#F6C9A5" />
-      <rect x="128" y="126" width="60" height="5" rx="2.5" fill="#D9D9E3" />
-      <rect x="128" y="138" width="50" height="5" rx="2.5" fill="#D9D9E3" />
-      <rect x="128" y="150" width="66" height="5" rx="2.5" fill="#D9D9E3" />
+      {/* forearm + hand */}
+      <path
+        d="M-20 320 C 10 250, 30 210, 60 185 C 72 175, 84 178, 84 192 L 82 205 C 96 196, 108 200, 106 212 C 118 210, 126 218, 118 228 C 128 232, 126 244, 114 248 C 104 268, 70 290, 40 320 Z"
+        fill="url(#hand)"
+      />
+      {/* thumb */}
+      <path d="M84 192 C 96 178, 116 170, 130 176 C 140 180, 138 192, 128 194 L 104 200 Z" fill="#FFC46B" />
+      {/* id card */}
+      <g transform="rotate(-12 150 150)">
+        <rect x="95" y="105" width="130" height="82" rx="8" fill="#fff" />
+        <rect x="95" y="105" width="130" height="20" rx="8" fill="#161240" />
+        <rect x="95" y="115" width="130" height="10" fill="#161240" />
+        <circle cx="122" cy="152" r="14" fill="#5EC8CF" />
+        <circle cx="122" cy="146" r="6" fill="#F6C9A5" />
+        <path d="M110 166 C 112 156, 132 156, 134 166 Z" fill="#161240" />
+        <rect x="145" y="138" width="60" height="5" rx="2.5" fill="#D9D9E3" />
+        <rect x="145" y="150" width="50" height="5" rx="2.5" fill="#D9D9E3" />
+        <rect x="145" y="162" width="66" height="5" rx="2.5" fill="#D9D9E3" />
+        <rect x="145" y="174" width="40" height="5" rx="2.5" fill="#D9D9E3" />
+      </g>
     </svg>
   );
 }
