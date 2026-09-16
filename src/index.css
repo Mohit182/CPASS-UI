@@ -28,3 +28,12 @@
     scrollbar-width: thin;
   }
 }
+
+/* Outside @layer so Tailwind doesn't tree-shake it (class isn't referenced in source).
+   Recharts 3 makes the chart surface focusable; don't draw an outline/ring around it. */
+.recharts-wrapper,
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
